@@ -17,8 +17,8 @@
   "author": "Tauqueer",
   "type": "commonjs",
   "scripts": {
-    "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "start": "parcel",
+    "build": "parcel build",
     "test": "jest"
   },
   "devDependencies": {
