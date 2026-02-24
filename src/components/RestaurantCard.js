@@ -1,7 +1,7 @@
 import { CDN_URL } from "../utlis/constants";
 
-const RestaurantCard = (props) => {
-  const { resData } = props;
+const RestaurantCard = ({ resData }) => {
+  if (!resData) return null;
 
   const {
     cloudinaryImageId,
@@ -9,8 +9,8 @@ const RestaurantCard = (props) => {
     cuisines,
     avgRating,
     costForTwo,
-    deliveryTime,
-  } = resData?.data;
+    sla,
+  } = resData;
 
   return (
     <div
@@ -22,21 +22,14 @@ const RestaurantCard = (props) => {
       <img
         className="res-logo"
         src={CDN_URL + cloudinaryImageId}
-        alt="Biryani"
+        alt={name}
       />
 
-      {/* <h3>{props.resName}</h3>
-        <h4>{props.cuisine}</h4> */}
-      {/* <h3>{resData.data.name}</h3>
-      <h4>{resData.data.cuisines.join(', ')}</h4>
-      <h4>{resData.data.avgRating} stars</h4>
-      <h4>₹{resData.data.costForTwo / 100} FOR TWO</h4>
-      <h4>{resData.data.deliveryTime} minutes</h4> */}
       <h3>{name}</h3>
-      <h4>{cuisines.join(", ")}</h4>
+      <h4>{cuisines?.join(", ")}</h4>
       <h4>{avgRating} stars</h4>
-      <h4>₹{costForTwo / 100} FOR TWO</h4>
-      <h4>{deliveryTime} minutes</h4>
+      <h4>{costForTwo}</h4>
+      <h4>{sla?.deliveryTime} minutes</h4>
     </div>
   );
 };
